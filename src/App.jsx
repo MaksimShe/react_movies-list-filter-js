@@ -9,18 +9,17 @@ function moviesFiltered(movies, query) {
     return movies;
   }
 
-  let filteredMovies = [];
   const parsedQuery = query.toLowerCase().trim();
 
   if (parsedQuery) {
-    filteredMovies = movies.filter(
+    return movies.filter(
       movie =>
-        movie.description.toLowerCase().includes(parsedQuery) ||
-        movie.title.toLowerCase().includes(parsedQuery),
+        (movie.description || '').toLowerCase().includes(parsedQuery) ||
+        (movie.title || '').toLowerCase().includes(parsedQuery),
     );
   }
 
-  return filteredMovies;
+  return movies;
 }
 
 export const App = () => {
