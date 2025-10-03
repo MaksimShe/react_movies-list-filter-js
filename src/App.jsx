@@ -9,11 +9,11 @@ function moviesFiltered(movies, query) {
     return movies;
   }
 
-  let filteredMovies = [...movies];
+  let filteredMovies = [];
   const parsedQuery = query.toLowerCase().trim();
 
   if (parsedQuery) {
-    filteredMovies = filteredMovies.filter(
+    filteredMovies = movies.filter(
       movie =>
         movie.description.toLowerCase().includes(parsedQuery) ||
         movie.title.toLowerCase().includes(parsedQuery),
